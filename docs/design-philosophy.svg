@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="'SF Pro Display','PingFang SC',-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#1e293b"/></linearGradient>
+  </defs>
+
+  <rect width="960" height="480" fill="url(#bg)" rx="12"/>
+  <text x="480" y="36" text-anchor="middle" fill="#f1f5f9" font-size="20" font-weight="800">Why NewClaw? — Design Philosophy</text>
+
+  <!-- Left: OpenClaw problems -->
+  <rect x="30" y="60" width="430" height="360" rx="10" fill="#1c1917" stroke="#dc2626" stroke-opacity="0.5"/>
+  <text x="245" y="86" text-anchor="middle" fill="#fca5a5" font-size="14" font-weight="700">OpenClaw — Engineering Constraints</text>
+
+  <text x="50" y="116" fill="#f87171" font-size="12" font-weight="600">Heartbeat + Cron Dual Scheduler</text>
+  <text x="50" y="134" fill="#a8a29e" font-size="10">Two parallel scheduling systems sharing one event bus</text>
+  <text x="50" y="148" fill="#a8a29e" font-size="10">→ 5 confirmed bugs, route ambiguity, state pollution</text>
+
+  <text x="50" y="176" fill="#f87171" font-size="12" font-weight="600">SOUL.md Text Constraints</text>
+  <text x="50" y="194" fill="#a8a29e" font-size="10">Markdown files trying to constrain LLM behavior</text>
+  <text x="50" y="208" fill="#a8a29e" font-size="10">→ "Intelligently" bypassed by the model itself</text>
+
+  <text x="50" y="236" fill="#f87171" font-size="12" font-weight="600">Persistent Session Entropy Death Spiral</text>
+  <text x="50" y="254" fill="#a8a29e" font-size="10">7,069 messages / 170k tokens per heartbeat</text>
+  <text x="50" y="268" fill="#a8a29e" font-size="10">→ Cleanup loops consume more resources than they free</text>
+
+  <text x="50" y="296" fill="#f87171" font-size="12" font-weight="600">Token Disasters</text>
+  <text x="50" y="314" fill="#a8a29e" font-size="10">Sub-agent callback infinite loop: 128M tokens ($100+)</text>
+  <text x="50" y="328" fill="#a8a29e" font-size="10">→ No circuit breaker, no deduplication</text>
+
+  <text x="50" y="356" fill="#f87171" font-size="12" font-weight="600">Security Exposure</text>
+  <text x="50" y="374" fill="#a8a29e" font-size="10">WebSocket daemon on public port</text>
+  <text x="50" y="388" fill="#a8a29e" font-size="10">→ 21,639 exposed instances (ClawJacked RCE)</text>
+
+  <!-- Right: NewClaw solutions -->
+  <rect x="500" y="60" width="430" height="360" rx="10" fill="#042f2e" stroke="#10b981" stroke-opacity="0.5"/>
+  <text x="715" y="86" text-anchor="middle" fill="#6ee7b7" font-size="14" font-weight="700">NewClaw — CC-Inspired Solutions</text>
+
+  <text x="520" y="116" fill="#34d399" font-size="12" font-weight="600">Single Event Loop, Zero Conflicts</text>
+  <text x="520" y="134" fill="#a7f3d0" font-size="10">One unified event collector, model decides what to process</text>
+  <text x="520" y="148" fill="#a7f3d0" font-size="10">→ Silence = zero token consumption</text>
+
+  <text x="520" y="176" fill="#34d399" font-size="12" font-weight="600">Progressive Trust (Permission Boundary)</text>
+  <text x="520" y="194" fill="#a7f3d0" font-size="10">Only constrain "what not to do", never "how to think"</text>
+  <text x="520" y="208" fill="#a7f3d0" font-size="10">→ L0-L3 levels, expanding as model improves</text>
+
+  <text x="520" y="236" fill="#34d399" font-size="12" font-weight="600">No Persistent Session + External Memory</text>
+  <text x="520" y="254" fill="#a7f3d0" font-size="10">Three-layer memory: Fact → Episode → Reflection (LLM)</text>
+  <text x="520" y="268" fill="#a7f3d0" font-size="10">→ Model decides what to remember and forget</text>
+
+  <text x="520" y="296" fill="#34d399" font-size="12" font-weight="600">Mission Engine with Safety Limits</text>
+  <text x="520" y="314" fill="#a7f3d0" font-size="10">30 loops / 10 min hard cap per run</text>
+  <text x="520" y="328" fill="#a7f3d0" font-size="10">→ Sprint/patrol modes, auto-notification</text>
+
+  <text x="520" y="356" fill="#34d399" font-size="12" font-weight="600">Minimal Attack Surface</text>
+  <text x="520" y="374" fill="#a7f3d0" font-size="10">Webhook-only HTTP (receive only), no public daemon</text>
+  <text x="520" y="388" fill="#a7f3d0" font-size="10">→ 4-level permission + dangerous command detection</text>
+
+  <!-- VS badge -->
+  <circle cx="480" cy="240" r="20" fill="#f59e0b"/>
+  <text x="480" y="245" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="900">VS</text>
+
+  <!-- Bottom insight -->
+  <text x="480" y="448" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="700">"When models are strong enough, engineering constraints become the bottleneck."</text>
+  <text x="480" y="468" text-anchor="middle" fill="#64748b" font-size="10">— Inspired by Claude Code's philosophy: design for the model six months from now</text>
+</svg>

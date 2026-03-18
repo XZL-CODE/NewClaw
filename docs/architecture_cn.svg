@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" font-family="'SF Pro Display','PingFang SC',-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#1e293b"/></linearGradient>
+    <linearGradient id="core" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#4f46e5"/></linearGradient>
+    <linearGradient id="mem" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#059669"/></linearGradient>
+    <linearGradient id="chan" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+    <linearGradient id="tool" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#dc2626"/></linearGradient>
+    <linearGradient id="perm" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+    <linearGradient id="mission" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#ea580c"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#94a3b8"/></marker>
+    <marker id="arrG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#10b981"/></marker>
+  </defs>
+
+  <rect width="960" height="720" fill="url(#bg)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="480" y="36" text-anchor="middle" fill="#f1f5f9" font-size="22" font-weight="800">NewClaw — 架构总览</text>
+  <text x="480" y="56" text-anchor="middle" fill="#64748b" font-size="11">事件驱动 · 单线程主循环 · 渐进式信任 · 三层记忆 · Mission 自主任务引擎</text>
+
+  <!-- ===== 通道层 ===== -->
+  <rect x="40" y="74" width="880" height="56" rx="10" fill="#1e3a5f" fill-opacity="0.5" stroke="#3b82f6" stroke-opacity="0.4"/>
+  <text x="60" y="95" fill="#93c5fd" font-size="11" font-weight="700">通道层</text>
+  <rect x="150" y="84" width="90" height="36" rx="6" fill="url(#chan)" fill-opacity="0.8"/>
+  <text x="195" y="106" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">终端 CLI</text>
+  <rect x="252" y="84" width="90" height="36" rx="6" fill="url(#chan)" fill-opacity="0.8"/>
+  <text x="297" y="106" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Web GUI</text>
+  <rect x="354" y="84" width="90" height="36" rx="6" fill="url(#chan)" fill-opacity="0.8"/>
+  <text x="399" y="106" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">飞书</text>
+  <rect x="456" y="84" width="90" height="36" rx="6" fill="url(#chan)" fill-opacity="0.8"/>
+  <text x="501" y="106" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Telegram</text>
+  <rect x="558" y="84" width="90" height="36" rx="6" fill="url(#chan)" fill-opacity="0.8"/>
+  <text x="603" y="106" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Discord</text>
+  <rect x="660" y="84" width="90" height="36" rx="6" fill="url(#chan)" fill-opacity="0.8"/>
+  <text x="705" y="106" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Webhook</text>
+  <rect x="762" y="84" width="140" height="36" rx="6" fill="url(#chan)" fill-opacity="0.5" stroke="#3b82f6" stroke-dasharray="4"/>
+  <text x="832" y="106" text-anchor="middle" fill="#93c5fd" font-size="10">+ 自定义通道</text>
+
+  <!-- 箭头：通道 → 事件收集器 -->
+  <line x1="480" y1="130" x2="480" y2="156" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ===== 核心引擎 ===== -->
+  <rect x="40" y="160" width="880" height="280" rx="10" fill="#1a1a2e" fill-opacity="0.6" stroke="#6366f1" stroke-opacity="0.4"/>
+  <text x="60" y="182" fill="#a5b4fc" font-size="11" font-weight="700">核心引擎 — 单线程主循环</text>
+
+  <!-- 事件收集器 -->
+  <rect x="60" y="196" width="180" height="52" rx="8" fill="url(#core)" filter="url(#glow)"/>
+  <text x="150" y="218" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">事件收集器</text>
+  <text x="150" y="234" text-anchor="middle" fill="#c7d2fe" font-size="9">等待事件 · 过滤 · 优先级队列</text>
+
+  <!-- 上下文组装器 -->
+  <rect x="270" y="196" width="180" height="52" rx="8" fill="url(#core)" filter="url(#glow)"/>
+  <text x="360" y="218" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">上下文组装器</text>
+  <text x="360" y="234" text-anchor="middle" fill="#c7d2fe" font-size="9">身份 · 记忆 · 任务 · 工具</text>
+
+  <!-- 模型推理 -->
+  <rect x="480" y="196" width="180" height="52" rx="8" fill="url(#core)" filter="url(#glow)"/>
+  <text x="570" y="218" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">模型推理</text>
+  <text x="570" y="234" text-anchor="middle" fill="#c7d2fe" font-size="9">流式 · 行动 · 回复 · 沉默</text>
+
+  <!-- 行动执行器 -->
+  <rect x="690" y="196" width="180" height="52" rx="8" fill="url(#core)" filter="url(#glow)"/>
+  <text x="780" y="218" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">行动执行器</text>
+  <text x="780" y="234" text-anchor="middle" fill="#c7d2fe" font-size="9">并行执行 · 权限检查</text>
+
+  <!-- 流向箭头 -->
+  <line x1="240" y1="222" x2="268" y2="222" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="450" y1="222" x2="478" y2="222" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="660" y1="222" x2="688" y2="222" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 反馈循环箭头 -->
+  <path d="M 780 250 L 780 270 Q 780 280 770 280 L 160 280 Q 150 280 150 270 L 150 250" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arr)" stroke-dasharray="6"/>
+  <text x="465" y="294" text-anchor="middle" fill="#fb923c" font-size="10" font-weight="600">反馈循环：while (模型产生工具调用) { 执行 → 反馈结果 }</text>
+
+  <!-- Mission 引擎 -->
+  <rect x="60" y="316" width="400" height="52" rx="8" fill="url(#mission)" fill-opacity="0.85"/>
+  <text x="260" y="338" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Mission 引擎 — 自主任务执行器</text>
+  <text x="260" y="354" text-anchor="middle" fill="#fed7aa" font-size="9">sprint/patrol 双模式 · 30轮/10分钟上限 · 自动调度 · 自省机制</text>
+
+  <!-- 权限边界 -->
+  <rect x="490" y="316" width="180" height="52" rx="8" fill="url(#perm)" fill-opacity="0.85"/>
+  <text x="580" y="338" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">权限边界</text>
+  <text x="580" y="354" text-anchor="middle" fill="#ddd6fe" font-size="9">L0 自由 · L1 通知 · L2 审批 · L3 禁止</text>
+
+  <!-- 任务队列 -->
+  <rect x="700" y="316" width="180" height="52" rx="8" fill="#334155" stroke="#64748b"/>
+  <text x="790" y="338" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">异步任务队列</text>
+  <text x="790" y="354" text-anchor="middle" fill="#94a3b8" font-size="9">最大并发: 5</text>
+
+  <!-- 沉默决策 -->
+  <rect x="60" y="384" width="860" height="24" rx="4" fill="#0f172a" stroke="#334155"/>
+  <text x="480" y="400" text-anchor="middle" fill="#64748b" font-size="10">沉默决策 = 零 Token 消耗（无心跳、无轮询——纯事件驱动）</text>
+
+  <!-- ===== 底层服务 ===== -->
+
+  <!-- 记忆服务 -->
+  <rect x="40" y="440" width="300" height="140" rx="10" fill="#064e3b" fill-opacity="0.4" stroke="#10b981" stroke-opacity="0.4"/>
+  <text x="60" y="462" fill="#6ee7b7" font-size="11" font-weight="700">记忆服务</text>
+  <text x="60" y="480" fill="#a7f3d0" font-size="10">三层架构（参考 Generative Agents）</text>
+  <rect x="56" y="492" width="84" height="30" rx="5" fill="url(#mem)" fill-opacity="0.7"/>
+  <text x="98" y="511" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">L1 事实</text>
+  <rect x="148" y="492" width="84" height="30" rx="5" fill="url(#mem)" fill-opacity="0.7"/>
+  <text x="190" y="511" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">L2 情景</text>
+  <rect x="240" y="492" width="84" height="30" rx="5" fill="url(#mem)" fill-opacity="0.7"/>
+  <text x="282" y="511" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">L3 反思</text>
+  <text x="60" y="544" fill="#6ee7b7" font-size="9">混合检索：FTS5 (0.4) + TF-IDF (0.6)</text>
+  <text x="60" y="558" fill="#6ee7b7" font-size="9">LLM 驱动反思 · 自动整理 · 多用户隔离</text>
+  <text x="60" y="572" fill="#6ee7b7" font-size="9">SQLite WAL · 64MB 缓存</text>
+
+  <!-- 工具集 -->
+  <rect x="360" y="440" width="260" height="140" rx="10" fill="#451a1a" fill-opacity="0.4" stroke="#ef4444" stroke-opacity="0.4"/>
+  <text x="380" y="462" fill="#fca5a5" font-size="11" font-weight="700">最小工具集</text>
+  <text x="380" y="480" fill="#fecaca" font-size="10">"Bash 就是一切" — CC 哲学</text>
+  <text x="380" y="500" fill="#fca5a5" font-size="10">bash · read_file · write_file · search_files</text>
+  <text x="380" y="516" fill="#fca5a5" font-size="10">grep_content · web_search · web_fetch</text>
+  <text x="380" y="532" fill="#fca5a5" font-size="10">send_message · memory_read · memory_write</text>
+  <text x="380" y="548" fill="#fca5a5" font-size="10">set_timer · mission_* (9 个工具)</text>
+  <text x="380" y="568" fill="#f87171" font-size="9" font-weight="600">20 个核心工具——其他一切由模型通过 bash 自行完成</text>
+
+  <!-- 扩展层 -->
+  <rect x="640" y="440" width="280" height="140" rx="10" fill="#1e293b" fill-opacity="0.6" stroke="#64748b" stroke-opacity="0.4"/>
+  <text x="660" y="462" fill="#cbd5e1" font-size="11" font-weight="700">扩展层</text>
+  <rect x="656" y="476" width="120" height="30" rx="5" fill="#334155" stroke="#64748b"/>
+  <text x="716" y="495" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="600">MCP 协议</text>
+  <rect x="784" y="476" width="120" height="30" rx="5" fill="#334155" stroke="#64748b"/>
+  <text x="844" y="495" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="600">插件系统</text>
+  <text x="660" y="528" fill="#94a3b8" font-size="10">12 个 LLM 厂商预配置：</text>
+  <text x="660" y="544" fill="#94a3b8" font-size="9">Anthropic · OpenAI · DeepSeek · Moonshot</text>
+  <text x="660" y="558" fill="#94a3b8" font-size="9">通义千问 · 智谱 · Gemini · Ollama</text>
+  <text x="660" y="572" fill="#94a3b8" font-size="9">LM Studio · vLLM · OpenRouter · 硅基流动</text>
+
+  <!-- ===== 公式栏 ===== -->
+  <rect x="40" y="610" width="880" height="44" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="480" y="628" text-anchor="middle" fill="#f1f5f9" font-size="12" font-weight="700">NewClaw = Claude Code 架构哲学 + 自主式 AI 伴侣 + 事件驱动 + 渐进式信任</text>
+  <text x="480" y="644" text-anchor="middle" fill="#64748b" font-size="10">"为六个月后的模型设计——给模型环境和工具，让它自己决定做什么。"</text>
+
+  <!-- ===== 底部统计 ===== -->
+  <text x="480" y="690" text-anchor="middle" fill="#475569" font-size="10">TypeScript · 47 个源文件 · 20 个核心工具 · 12 个 LLM 厂商 · 5 个通道 · SQLite · 零外部服务依赖</text>
+</svg>

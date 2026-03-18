@@ -1,0 +1,11 @@
+node_modules/
+data/memory.db
+data/memory.db-wal
+data/memory.db-shm
+data/newclaw.log
+*.log
+.DS_Store
+.env
+.env.*
+package-lock.json
+dist/

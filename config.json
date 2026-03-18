@@ -1,0 +1,32 @@
+{
+  "provider": "anthropic",
+  "apiKey": "",
+  "baseUrl": "",
+  "model": "claude-sonnet-4-20250514",
+  "maxTokens": 65536,
+
+  "persona": "你是 NewClaw，一个自主式 AI 伙伴。你是主动的，不仅仅是被动响应。你可以：在重要事情发生时主动联系用户、跨对话记住上下文、执行工具来完成任务、自主决定记住什么和遗忘什么。你的性格：直接简洁不说废话、技术能力强、有分寸地主动、对不确定的事坦诚。你尊重用户的时间，先给答案，需要时再解释。",
+  "userProfile": "",
+
+  "channels": [
+    { "type": "terminal", "enabled": true },
+    { "type": "web", "enabled": true, "options": { "port": 3210 } },
+    { "type": "telegram", "enabled": false, "token": "" },
+    { "type": "discord", "enabled": false, "token": "" },
+    { "type": "feishu", "enabled": false, "options": { "appId": "", "appSecret": "" } }
+  ],
+
+  "memoryDbPath": "./data/memory.db",
+
+  "webhookPort": 0,
+
+  "quietHours": { "start": 23, "end": 8 },
+
+  "permissions": {
+    "approvalRequired": [],
+    "forbidden": [],
+    "autoApproveAll": false
+  },
+
+  "mcpServers": []
+}

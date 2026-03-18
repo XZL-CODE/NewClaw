@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="'SF Pro Display','PingFang SC',-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#1e293b"/></linearGradient>
+  </defs>
+
+  <rect width="960" height="480" fill="url(#bg)" rx="12"/>
+  <text x="480" y="36" text-anchor="middle" fill="#f1f5f9" font-size="20" font-weight="800">为什么是 NewClaw？— 设计哲学</text>
+
+  <!-- 左：OpenClaw 问题 -->
+  <rect x="30" y="60" width="430" height="360" rx="10" fill="#1c1917" stroke="#dc2626" stroke-opacity="0.5"/>
+  <text x="245" y="86" text-anchor="middle" fill="#fca5a5" font-size="14" font-weight="700">OpenClaw — 工程约束困境</text>
+
+  <text x="50" y="116" fill="#f87171" font-size="12" font-weight="600">Heartbeat + Cron 双调度系统</text>
+  <text x="50" y="134" fill="#a8a29e" font-size="10">两套并行调度器共享一个事件总线</text>
+  <text x="50" y="148" fill="#a8a29e" font-size="10">→ 5 个已确认 Bug，路由歧义，状态互污染</text>
+
+  <text x="50" y="176" fill="#f87171" font-size="12" font-weight="600">SOUL.md 文本约束</text>
+  <text x="50" y="194" fill="#a8a29e" font-size="10">用 Markdown 文件试图约束 LLM 行为</text>
+  <text x="50" y="208" fill="#a8a29e" font-size="10">→ 被模型"智能地"绕过</text>
+
+  <text x="50" y="236" fill="#f87171" font-size="12" font-weight="600">持久 Session 熵增死亡螺旋</text>
+  <text x="50" y="254" fill="#a8a29e" font-size="10">7,069 条消息 / 每次心跳 170k Token</text>
+  <text x="50" y="268" fill="#a8a29e" font-size="10">→ 清理循环消耗的资源比释放的更多</text>
+
+  <text x="50" y="296" fill="#f87171" font-size="12" font-weight="600">Token 灾难</text>
+  <text x="50" y="314" fill="#a8a29e" font-size="10">子 Agent 回调无限循环：1.28 亿 Token（$100+）</text>
+  <text x="50" y="328" fill="#a8a29e" font-size="10">→ 无熔断机制，无回调去重</text>
+
+  <text x="50" y="356" fill="#f87171" font-size="12" font-weight="600">安全暴露</text>
+  <text x="50" y="374" fill="#a8a29e" font-size="10">WebSocket 守护进程暴露公网端口</text>
+  <text x="50" y="388" fill="#a8a29e" font-size="10">→ 21,639 个暴露实例（ClawJacked RCE 漏洞）</text>
+
+  <!-- 右：NewClaw 方案 -->
+  <rect x="500" y="60" width="430" height="360" rx="10" fill="#042f2e" stroke="#10b981" stroke-opacity="0.5"/>
+  <text x="715" y="86" text-anchor="middle" fill="#6ee7b7" font-size="14" font-weight="700">NewClaw — CC 架构哲学方案</text>
+
+  <text x="520" y="116" fill="#34d399" font-size="12" font-weight="600">单事件循环，零冲突</text>
+  <text x="520" y="134" fill="#a7f3d0" font-size="10">统一事件收集器，模型自主决定处理什么</text>
+  <text x="520" y="148" fill="#a7f3d0" font-size="10">→ 沉默 = 零 Token 消耗</text>
+
+  <text x="520" y="176" fill="#34d399" font-size="12" font-weight="600">渐进式信任（权限边界）</text>
+  <text x="520" y="194" fill="#a7f3d0" font-size="10">只约束"什么不能做"，不约束"怎么想"</text>
+  <text x="520" y="208" fill="#a7f3d0" font-size="10">→ L0-L3 四级权限，随模型进步扩展</text>
+
+  <text x="520" y="236" fill="#34d399" font-size="12" font-weight="600">无持久 Session + 外部记忆</text>
+  <text x="520" y="254" fill="#a7f3d0" font-size="10">三层记忆：事实 → 情景 → 反思（LLM 驱动）</text>
+  <text x="520" y="268" fill="#a7f3d0" font-size="10">→ 模型自主决定记什么忘什么</text>
+
+  <text x="520" y="296" fill="#34d399" font-size="12" font-weight="600">Mission 引擎 + 安全限制</text>
+  <text x="520" y="314" fill="#a7f3d0" font-size="10">每轮最多 30 次循环 / 10 分钟硬上限</text>
+  <text x="520" y="328" fill="#a7f3d0" font-size="10">→ Sprint/Patrol 双模式，自动通知</text>
+
+  <text x="520" y="356" fill="#34d399" font-size="12" font-weight="600">最小攻击面</text>
+  <text x="520" y="374" fill="#a7f3d0" font-size="10">仅 Webhook HTTP（只接收），无公网守护进程</text>
+  <text x="520" y="388" fill="#a7f3d0" font-size="10">→ 四级权限 + 危险命令检测</text>
+
+  <!-- VS 标记 -->
+  <circle cx="480" cy="240" r="20" fill="#f59e0b"/>
+  <text x="480" y="245" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="900">VS</text>
+
+  <!-- 底部洞见 -->
+  <text x="480" y="448" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="700">"当模型能力足够强时，工程约束反而成了最大的瓶颈。"</text>
+  <text x="480" y="468" text-anchor="middle" fill="#64748b" font-size="10">— 灵感来源于 Claude Code 的哲学：为六个月后的模型设计</text>
+</svg>
