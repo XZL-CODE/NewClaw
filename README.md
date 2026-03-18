@@ -509,7 +509,7 @@ Focus: LLM architecture, autonomous agents, AI companion systems
 - WeChat Official Account: 龙哥AI
 
 <p align="center">
-  <img src="docs/公众号-龙哥AI.jpg" alt="WeChat Official Account - 龙哥AI" width="200"/>
+  <img src="docs/wx公众号-龙哥AI.jpg" alt="WeChat Official Account - 龙哥AI" width="200"/>
 </p>
 
 ---
