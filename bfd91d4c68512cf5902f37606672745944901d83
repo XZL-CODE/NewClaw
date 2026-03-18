@@ -1,0 +1,25 @@
+README.md
+  04a75e19dd46b7d2 512
+README_CN.md
+  04a75e19dd46b7d2 512
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15",
+  "base_commit_sha": "bfd91d4c68512cf5902f37606672745944901d83",
+  "prompts": {
+    "04a75e19dd46b7d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7f826295-16b7-45cf-b6f2-cdc9035d89de",
+        "model": "<synthetic>"
+      },
+      "human_author": "MacBookPro <abc10086xzl@gmail.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 2,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
