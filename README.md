@@ -506,6 +506,11 @@ Focus: LLM architecture, autonomous agents, AI companion systems
 
 - GitHub: [https://github.com/XZL-CODE](https://github.com/XZL-CODE)
 - CSDN: [@逐梦苍穹](https://blog.csdn.net/weixin_43764974)
+- WeChat Official Account: 龙哥AI
+
+<p align="center">
+  <img src="docs/公众号-龙哥AI.jpg" alt="WeChat Official Account - 龙哥AI" width="200"/>
+</p>
 
 ---
 
