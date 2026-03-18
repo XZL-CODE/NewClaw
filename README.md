@@ -453,6 +453,12 @@ NewClaw/
 
 **47 TypeScript source files · 20 core tools · 12 LLM providers · 5 channels · Zero external service dependencies**
 
+### Complete Architecture
+
+<p align="center">
+  <img src="docs/architecture-full.svg" alt="NewClaw Complete Architecture" width="900"/>
+</p>
+
 ---
 
 ## Academic Foundations

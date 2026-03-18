@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#6B7280"/></marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#7C3AED"/></marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#DC2626"/></marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#059669"/></marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#D97706"/></marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#3B82F6"/></marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="820" fill="#FAFBFC" rx="6"/>
+
+  <!-- ===== 标题 ===== -->
+  <text x="600" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">NewClaw — 完整架构总览</text>
+  <text x="600" y="46" text-anchor="middle" font-size="11" fill="#6B7280">事件驱动自主式 AI 伴侣 · CC 启发的单循环架构 · 渐进式信任 · Bash 万能工具</text>
+
+  <!-- ===== 配置系统（右上角） ===== -->
+  <rect x="1000" y="62" width="175" height="46" rx="6" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="1088" y="77" text-anchor="middle" font-size="10" font-weight="600" fill="#6B7280">配置系统</text>
+  <text x="1088" y="90" text-anchor="middle" font-size="9" fill="#9CA3AF">config.json + 环境变量</text>
+  <text x="1088" y="101" text-anchor="middle" font-size="9" fill="#9CA3AF">自动检测 Provider</text>
+
+  <!-- ===== 通道层 ===== -->
+  <g id="channels">
+    <!-- 终端 -->
+    <rect x="55" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="125" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">终端</text>
+    <text x="125" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">stdin/stdout</text>
+    <!-- Web -->
+    <rect x="215" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="285" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Web 界面</text>
+    <text x="285" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">Express + WebSocket</text>
+    <!-- Telegram -->
+    <rect x="375" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="445" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Telegram</text>
+    <text x="445" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">grammy SDK</text>
+    <!-- Discord -->
+    <rect x="535" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="605" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Discord</text>
+    <text x="605" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">discord.js</text>
+    <!-- 飞书 -->
+    <rect x="695" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="765" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">飞书</text>
+    <text x="765" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">Lark SDK</text>
+
+    <!-- 事件源标签 -->
+    <text x="460" y="113" text-anchor="middle" font-size="9" fill="#6B7280">事件源：用户消息 · Webhook · 文件监听 · 定时器 · 日历 · Mission · API 回调</text>
+  </g>
+
+  <!-- 箭头：通道 → 事件收集器 -->
+  <line x1="460" y1="118" x2="460" y2="130" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 事件收集器 ===== -->
+  <rect x="160" y="133" width="600" height="32" rx="6" fill="#F3F4F6" stroke="#4B5563" stroke-width="1.5"/>
+  <text x="460" y="150" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">事件收集器 Event Collector</text>
+  <text x="460" y="161" text-anchor="middle" font-size="9" fill="#6B7280">优先级队列 (critical > normal > low) · 可插拔过滤器 · Bot 自过滤 · 事件驱动等待</text>
+
+  <!-- 箭头：事件收集器 → 主循环 -->
+  <line x1="460" y1="168" x2="460" y2="180" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 主循环 ===== -->
+  <rect x="160" y="183" width="600" height="32" rx="6" fill="#E5E7EB" stroke="#374151" stroke-width="1.5"/>
+  <text x="460" y="200" text-anchor="middle" font-size="11" font-weight="600" fill="#1F2937">主循环 Master Loop — 单线程事件处理器</text>
+  <text x="460" y="211" text-anchor="middle" font-size="9" fill="#6B7280">任务队列 (并发: 5) · 每事件最多 25 轮循环 · 流式输出 · 错误反馈给用户</text>
+
+  <!-- 箭头：主循环 → 核心循环 -->
+  <line x1="460" y1="218" x2="460" y2="232" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 核心处理循环（大容器） ===== -->
+  <rect x="25" y="235" width="1150" height="200" rx="8" fill="#FFFFFF" stroke="#4B5563" stroke-width="2"/>
+  <text x="600" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#374151">核心处理循环</text>
+  <text x="600" y="265" text-anchor="middle" font-size="10" fill="#6B7280" font-style="italic">CC 核心洞察：while (模型产出 tool_call) { 执行 → 反馈结果 }</text>
+
+  <!-- 上下文组装器 -->
+  <rect x="40" y="275" width="330" height="145" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="40" y="275" width="330" height="22" rx="6" fill="#7C3AED"/>
+  <rect x="40" y="288" width="330" height="9" fill="#7C3AED"/>
+  <text x="205" y="291" text-anchor="middle" font-size="11" font-weight="700" fill="white">上下文组装器</text>
+  <text x="52" y="314" font-size="10" fill="#5B21B6">· Persona + 用户画像</text>
+  <text x="52" y="328" font-size="10" fill="#5B21B6">· 记忆检索（混合 FTS + 向量）</text>
+  <text x="52" y="342" font-size="10" fill="#5B21B6">· 按用户隔离的对话历史</text>
+  <text x="52" y="356" font-size="10" fill="#5B21B6">· 活跃 Mission 上下文注入</text>
+  <text x="52" y="370" font-size="10" fill="#5B21B6">· 工具定义列表</text>
+  <text x="52" y="384" font-size="10" fill="#5B21B6">· 历史溢出时自动摘要 → Episode</text>
+
+  <!-- 箭头：上下文 → 推理 -->
+  <line x1="375" y1="348" x2="415" y2="348" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 模型推理 -->
+  <rect x="420" y="275" width="310" height="145" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <rect x="420" y="275" width="310" height="22" rx="6" fill="#DC2626"/>
+  <rect x="420" y="288" width="310" height="9" fill="#DC2626"/>
+  <text x="575" y="291" text-anchor="middle" font-size="11" font-weight="700" fill="white">模型推理</text>
+  <text x="432" y="314" font-size="10" fill="#991B1B">· 通过 Provider 调用 LLM</text>
+  <text x="432" y="328" font-size="10" fill="#991B1B">· 流式 / 非流式模式</text>
+  <text x="432" y="342" font-size="10" fill="#991B1B">· 解析 → 模型决策</text>
+  <!-- 决策类型 -->
+  <rect x="440" y="354" width="72" height="20" rx="4" fill="#FCA5A5" stroke="#DC2626" stroke-width="1"/>
+  <text x="476" y="368" text-anchor="middle" font-size="9" font-weight="600" fill="#991B1B">回复</text>
+  <rect x="522" y="354" width="52" height="20" rx="4" fill="#FCA5A5" stroke="#DC2626" stroke-width="1"/>
+  <text x="548" y="368" text-anchor="middle" font-size="9" font-weight="600" fill="#991B1B">行动</text>
+  <rect x="584" y="354" width="65" height="20" rx="4" fill="#FCA5A5" stroke="#DC2626" stroke-width="1"/>
+  <text x="616" y="368" text-anchor="middle" font-size="9" font-weight="600" fill="#991B1B">沉默</text>
+  <text x="432" y="396" font-size="10" fill="#991B1B">· Token 用量追踪（Metrics）</text>
+
+  <!-- 箭头：推理 → 执行器 -->
+  <line x1="735" y1="348" x2="775" y2="348" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 行动执行器 -->
+  <rect x="780" y="275" width="380" height="145" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
+  <rect x="780" y="275" width="380" height="22" rx="6" fill="#059669"/>
+  <rect x="780" y="288" width="380" height="9" fill="#059669"/>
+  <text x="970" y="291" text-anchor="middle" font-size="11" font-weight="700" fill="white">行动执行器</text>
+  <text x="792" y="314" font-size="10" fill="#065F46">· 权限检查（四级边界）</text>
+  <text x="792" y="328" font-size="10" fill="#065F46">· 并行工具执行</text>
+  <text x="792" y="342" font-size="10" fill="#065F46">· 结果收集 + 错误处理</text>
+  <text x="792" y="356" font-size="10" fill="#065F46">· 审批回调（5 分钟超时）</text>
+  <text x="792" y="370" font-size="10" fill="#065F46">· Mission 自动审批模式</text>
+
+  <!-- 反馈箭头（核心循环底部弧线） -->
+  <path d="M 970,420 L 970,427 L 205,427 L 205,420" fill="none" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="5,3"/>
+  <text x="588" y="425" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">← 工具执行结果反馈（循环直到 回复 或 沉默）→</text>
+
+  <!-- 响应箭头（虚线，从核心循环回到通道） -->
+  <path d="M 575,275 L 575,270 Q 575,258 565,258 L 25,258 Q 12,258 12,248 L 12,100 Q 12,82 25,82 L 50,82" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <text x="12" y="178" font-size="9" font-weight="600" fill="#3B82F6" transform="rotate(-90, 12, 178)">响应 → 通道</text>
+
+  <!-- ===== 下层区域 ===== -->
+
+  <!-- ===== 记忆系统（左） ===== -->
+  <rect x="25" y="458" width="340" height="218" rx="8" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="25" y="458" width="340" height="24" rx="8" fill="#7C3AED"/>
+  <rect x="25" y="472" width="340" height="10" fill="#7C3AED"/>
+  <text x="195" y="475" text-anchor="middle" font-size="12" font-weight="700" fill="white">记忆系统</text>
+
+  <!-- 三层架构 -->
+  <text x="38" y="500" font-size="10" font-weight="600" fill="#5B21B6">三层记忆架构：</text>
+  <rect x="38" y="507" width="95" height="18" rx="3" fill="#C4B5FD" stroke="#7C3AED" stroke-width="0.5"/>
+  <text x="85" y="519" text-anchor="middle" font-size="9" font-weight="600" fill="#5B21B6">事实层</text>
+  <text x="140" y="519" font-size="9" fill="#6D28D9">持久化知识</text>
+
+  <rect x="38" y="528" width="95" height="18" rx="3" fill="#C4B5FD" stroke="#7C3AED" stroke-width="0.5"/>
+  <text x="85" y="540" text-anchor="middle" font-size="9" font-weight="600" fill="#5B21B6">情景层</text>
+  <text x="140" y="540" font-size="9" fill="#6D28D9">对话日志</text>
+
+  <rect x="38" y="549" width="95" height="18" rx="3" fill="#C4B5FD" stroke="#7C3AED" stroke-width="0.5"/>
+  <text x="85" y="561" text-anchor="middle" font-size="9" font-weight="600" fill="#5B21B6">反思层</text>
+  <text x="140" y="561" font-size="9" fill="#6D28D9">LLM 生成的洞察</text>
+
+  <line x1="38" y1="574" x2="352" y2="574" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="38" y="588" font-size="10" font-weight="600" fill="#5B21B6">混合检索：</text>
+  <text x="38" y="602" font-size="9" fill="#6D28D9">FTS5 关键词 (40%) + TF-IDF 向量 (60%)</text>
+  <text x="38" y="616" font-size="9" fill="#6D28D9">余弦相似度 + Jaccard 去重</text>
+  <line x1="38" y1="624" x2="352" y2="624" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="38" y="638" font-size="10" font-weight="600" fill="#5B21B6">自动维护：</text>
+  <text x="38" y="652" font-size="9" fill="#6D28D9">自动压缩 (>500条) · 自动反思 · 按用户隔离</text>
+  <text x="38" y="666" font-size="9" fill="#6D28D9">SQLite WAL + FTS5 · 零外部服务依赖</text>
+
+  <!-- 箭头：记忆 ↔ 上下文组装器 -->
+  <line x1="195" y1="458" x2="195" y2="425" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+  <text x="205" y="446" font-size="8" font-weight="600" fill="#7C3AED">检索 / 存储</text>
+
+  <!-- ===== LLM 厂商（中上） ===== -->
+  <rect x="385" y="458" width="290" height="102" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <rect x="385" y="458" width="290" height="24" rx="8" fill="#DC2626"/>
+  <rect x="385" y="472" width="290" height="10" fill="#DC2626"/>
+  <text x="530" y="475" text-anchor="middle" font-size="12" font-weight="700" fill="white">LLM 厂商 (12 家)</text>
+
+  <text x="398" y="498" font-size="10" font-weight="600" fill="#991B1B">Anthropic</text>
+  <text x="468" y="498" font-size="9" fill="#B91C1C">（原生 SDK）</text>
+  <text x="398" y="512" font-size="10" font-weight="600" fill="#991B1B">OpenAI 兼容</text>
+  <text x="498" y="512" font-size="9" fill="#B91C1C">（11 家厂商）</text>
+  <text x="398" y="526" font-size="8" fill="#DC2626">DeepSeek · Moonshot · 通义千问 · 智谱</text>
+  <text x="398" y="538" font-size="8" fill="#DC2626">Gemini · Ollama · LM Studio · vLLM · 更多</text>
+  <text x="398" y="553" font-size="9" font-weight="600" fill="#991B1B">流式输出 + Function Calling + Token 计量</text>
+
+  <!-- 箭头：厂商 ↔ 模型推理 -->
+  <line x1="530" y1="458" x2="530" y2="425" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arr-red)"/>
+  <text x="540" y="446" font-size="8" font-weight="600" fill="#DC2626">chat / chatStream</text>
+
+  <!-- ===== 工具注册表（中下） ===== -->
+  <rect x="385" y="574" width="290" height="102" rx="8" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
+  <rect x="385" y="574" width="290" height="24" rx="8" fill="#059669"/>
+  <rect x="385" y="588" width="290" height="10" fill="#059669"/>
+  <text x="530" y="591" text-anchor="middle" font-size="12" font-weight="700" fill="white">工具注册表</text>
+
+  <text x="398" y="614" font-size="10" font-weight="600" fill="#065F46">内置工具 (20 个)：</text>
+  <text x="398" y="628" font-size="8.5" fill="#047857">bash · 文件操作 · web_search · web_fetch</text>
+  <text x="398" y="641" font-size="8.5" fill="#047857">记忆 · 消息 · 定时器 · Mission (×9)</text>
+  <line x1="398" y1="648" x2="662" y2="648" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="398" y="661" font-size="9" fill="#065F46"><tspan font-weight="600">MCP 服务器</tspan>：stdio JSON-RPC 2.0</text>
+  <text x="398" y="673" font-size="9" fill="#065F46"><tspan font-weight="600">JS 插件</tspan>：plugins/ 目录自动加载</text>
+
+  <!-- 箭头：工具 ↔ 行动执行器 -->
+  <path d="M 660,600 L 710,600 Q 730,600 730,580 L 730,440 Q 730,425 745,425 L 775,425" fill="none" stroke="#059669" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <text x="735" y="510" font-size="8" font-weight="600" fill="#059669" transform="rotate(-90, 735, 510)">执行工具</text>
+
+  <!-- ===== Mission 引擎（右） ===== -->
+  <rect x="700" y="458" width="475" height="218" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+  <rect x="700" y="458" width="475" height="24" rx="8" fill="#D97706"/>
+  <rect x="700" y="472" width="475" height="10" fill="#D97706"/>
+  <text x="938" y="475" text-anchor="middle" font-size="12" font-weight="700" fill="white">Mission 引擎 — 自主后台执行</text>
+
+  <text x="715" y="500" font-size="10" font-weight="600" fill="#92400E">执行模式：</text>
+  <rect x="715" y="505" width="80" height="18" rx="3" fill="#FDE68A" stroke="#D97706" stroke-width="0.5"/>
+  <text x="755" y="517" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">冲刺模式</text>
+  <text x="802" y="517" font-size="9" fill="#B45309">5 分钟间隔，密集迭代</text>
+  <rect x="715" y="527" width="80" height="18" rx="3" fill="#FDE68A" stroke="#D97706" stroke-width="0.5"/>
+  <text x="755" y="539" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">巡逻模式</text>
+  <text x="802" y="539" font-size="9" fill="#B45309">30 分钟间隔，持续监控</text>
+
+  <line x1="715" y1="552" x2="1162" y2="552" stroke="#FDE68A" stroke-width="1"/>
+  <text x="715" y="566" font-size="10" font-weight="600" fill="#92400E">单轮限制：</text>
+  <text x="715" y="580" font-size="9" fill="#B45309">最多 30 次循环 / 10 分钟超时 / 错误重试 3 次</text>
+  <text x="715" y="594" font-size="9" fill="#B45309">自动审批所有工具（无用户对话框）</text>
+  <text x="715" y="608" font-size="9" fill="#B45309">通过 send_message 自动通知用户进度</text>
+
+  <line x1="715" y1="616" x2="1162" y2="616" stroke="#FDE68A" stroke-width="1"/>
+  <text x="715" y="630" font-size="10" font-weight="600" fill="#92400E">持久化：</text>
+  <text x="715" y="644" font-size="9" fill="#B45309">SQLite：missions + mission_steps 表</text>
+  <text x="715" y="658" font-size="9" fill="#B45309">continue_now（立即续跑）· 每 50 步自省</text>
+  <text x="715" y="672" font-size="9" fill="#B45309">生命周期：active → paused → completed · 启动时恢复</text>
+
+  <!-- 箭头：Mission ↔ 主循环 -->
+  <path d="M 938,458 L 938,445 Q 938,435 928,435 L 770,435 L 770,218" fill="none" stroke="#D97706" stroke-width="1.5" marker-end="url(#arr-amber)"/>
+  <text x="860" y="444" font-size="8" font-weight="600" fill="#D97706">调度 / 执行</text>
+
+  <!-- ===== 权限边界 ===== -->
+  <rect x="25" y="698" width="1150" height="44" rx="8" fill="#CFFAFE" stroke="#0891B2" stroke-width="1.5"/>
+  <text x="600" y="714" text-anchor="middle" font-size="12" font-weight="700" fill="#155E75">权限边界 — 四级渐进式信任</text>
+  <!-- L0 -->
+  <rect x="42" y="722" width="225" height="14" rx="3" fill="#A5F3FC"/>
+  <text x="154" y="732" text-anchor="middle" font-size="8.5" font-weight="600" fill="#0E7490">L0 自由：读取 · 搜索 · grep · web · 记忆读</text>
+  <!-- L1 -->
+  <rect x="280" y="722" width="250" height="14" rx="3" fill="#67E8F9"/>
+  <text x="405" y="732" text-anchor="middle" font-size="8.5" font-weight="600" fill="#0E7490">L1 通知：写文件 · bash · 记忆写</text>
+  <!-- L2 -->
+  <rect x="543" y="722" width="290" height="14" rx="3" fill="#22D3EE"/>
+  <text x="688" y="732" text-anchor="middle" font-size="8.5" font-weight="600" fill="#155E75">L2 审批：发消息 · MCP 工具（5分钟超时）</text>
+  <!-- L3 -->
+  <rect x="846" y="722" width="315" height="14" rx="3" fill="#06B6D4"/>
+  <text x="1003" y="732" text-anchor="middle" font-size="8.5" font-weight="700" fill="#164E63">L3 禁止：可配置硬拦截 · 始终拒绝</text>
+
+  <!-- ===== 统计行 ===== -->
+  <text x="600" y="770" text-anchor="middle" font-size="11" fill="#9CA3AF">47 个 TypeScript 文件 · 20 个核心工具 · 12 个 LLM 厂商 · 5 个通道 · 零外部服务依赖</text>
+
+  <!-- ===== 初始化流程 ===== -->
+  <text x="600" y="790" text-anchor="middle" font-size="9" fill="#D1D5DB">初始化：配置 → 记忆 → 事件 → 通道 → Provider → 工具 → MCP → 插件 → 回调绑定 → 恢复 Mission → 启动循环</text>
+
+  <!-- ===== 连接线：权限 ↔ 行动执行器 ===== -->
+  <path d="M 970,425 L 970,435 Q 970,445 980,445 L 1150,445 Q 1165,445 1165,455 L 1165,695" fill="none" stroke="#0891B2" stroke-width="1" stroke-dasharray="4,3"/>
+</svg>

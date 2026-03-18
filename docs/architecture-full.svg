@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#6B7280"/></marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#7C3AED"/></marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#DC2626"/></marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#059669"/></marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#D97706"/></marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9Z" fill="#3B82F6"/></marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="820" fill="#FAFBFC" rx="6"/>
+
+  <!-- ===== TITLE ===== -->
+  <text x="600" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">NewClaw — Complete Architecture Overview</text>
+  <text x="600" y="46" text-anchor="middle" font-size="11" fill="#6B7280">Event-Driven Autonomous AI Companion · CC-Inspired Single Loop · Progressive Trust · Bash-Is-Everything</text>
+
+  <!-- ===== CONFIG (top-right annotation) ===== -->
+  <rect x="1000" y="62" width="175" height="46" rx="6" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="1088" y="77" text-anchor="middle" font-size="10" font-weight="600" fill="#6B7280">Config System</text>
+  <text x="1088" y="90" text-anchor="middle" font-size="9" fill="#9CA3AF">config.json + ENV vars</text>
+  <text x="1088" y="101" text-anchor="middle" font-size="9" fill="#9CA3AF">Auto-detect provider</text>
+
+  <!-- ===== CHANNEL ROW ===== -->
+  <g id="channels">
+    <!-- Terminal -->
+    <rect x="55" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="125" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Terminal</text>
+    <text x="125" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">stdin/stdout</text>
+    <!-- Web -->
+    <rect x="215" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="285" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Web UI</text>
+    <text x="285" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">Express + WebSocket</text>
+    <!-- Telegram -->
+    <rect x="375" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="445" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Telegram</text>
+    <text x="445" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">grammy SDK</text>
+    <!-- Discord -->
+    <rect x="535" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="605" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Discord</text>
+    <text x="605" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">discord.js</text>
+    <!-- Feishu -->
+    <rect x="695" y="65" width="140" height="34" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="765" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Feishu</text>
+    <text x="765" y="92" text-anchor="middle" font-size="8" fill="#3B82F6">Lark SDK</text>
+
+    <!-- Event source labels -->
+    <text x="460" y="113" text-anchor="middle" font-size="9" fill="#6B7280">Event Sources: user · webhook · file_watch · timer · calendar · mission · api_callback</text>
+  </g>
+
+  <!-- Arrow: Channels → Event Collector -->
+  <line x1="460" y1="118" x2="460" y2="130" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== EVENT COLLECTOR ===== -->
+  <rect x="160" y="133" width="600" height="32" rx="6" fill="#F3F4F6" stroke="#4B5563" stroke-width="1.5"/>
+  <text x="460" y="150" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">Event Collector</text>
+  <text x="460" y="161" text-anchor="middle" font-size="9" fill="#6B7280">Priority Queue (critical > normal > low) · Pluggable Filters · Bot Self-filter · Event-Driven Wait</text>
+
+  <!-- Arrow: Event Collector → Master Loop -->
+  <line x1="460" y1="168" x2="460" y2="180" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== MASTER LOOP ===== -->
+  <rect x="160" y="183" width="600" height="32" rx="6" fill="#E5E7EB" stroke="#374151" stroke-width="1.5"/>
+  <text x="460" y="200" text-anchor="middle" font-size="11" font-weight="600" fill="#1F2937">Master Loop — Single-Thread Event Processor</text>
+  <text x="460" y="211" text-anchor="middle" font-size="9" fill="#6B7280">TaskQueue (concurrency: 5) · Max 25 loops/event · Streaming · Error feedback to user</text>
+
+  <!-- Arrow: Master Loop → Core Loop -->
+  <line x1="460" y1="218" x2="460" y2="232" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== CORE PROCESSING LOOP (big container) ===== -->
+  <rect x="25" y="235" width="1150" height="200" rx="8" fill="#FFFFFF" stroke="#4B5563" stroke-width="2" stroke-dasharray="none"/>
+  <text x="600" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#374151">Core Processing Loop</text>
+  <text x="600" y="265" text-anchor="middle" font-size="10" fill="#6B7280" font-style="italic">CC Insight: while (model produces tool_call) { execute → feed back }</text>
+
+  <!-- Context Assembler -->
+  <rect x="40" y="275" width="330" height="145" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="40" y="275" width="330" height="22" rx="6" fill="#7C3AED"/>
+  <rect x="40" y="288" width="330" height="9" fill="#7C3AED"/>
+  <text x="205" y="291" text-anchor="middle" font-size="11" font-weight="700" fill="white">Context Assembler</text>
+  <text x="52" y="314" font-size="10" fill="#5B21B6">· Persona + User Profile</text>
+  <text x="52" y="328" font-size="10" fill="#5B21B6">· Memory Search (Hybrid FTS + Vector)</text>
+  <text x="52" y="342" font-size="10" fill="#5B21B6">· Per-user Conversation History</text>
+  <text x="52" y="356" font-size="10" fill="#5B21B6">· Active Mission Context Injection</text>
+  <text x="52" y="370" font-size="10" fill="#5B21B6">· Tool Definitions</text>
+  <text x="52" y="384" font-size="10" fill="#5B21B6">· Auto-summarize → Episode on overflow</text>
+
+  <!-- Arrow: Context → Reasoning -->
+  <line x1="375" y1="348" x2="415" y2="348" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Model Reasoning -->
+  <rect x="420" y="275" width="310" height="145" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <rect x="420" y="275" width="310" height="22" rx="6" fill="#DC2626"/>
+  <rect x="420" y="288" width="310" height="9" fill="#DC2626"/>
+  <text x="575" y="291" text-anchor="middle" font-size="11" font-weight="700" fill="white">Model Reasoning</text>
+  <text x="432" y="314" font-size="10" fill="#991B1B">· LLM Call via Provider</text>
+  <text x="432" y="328" font-size="10" fill="#991B1B">· Stream / Non-stream mode</text>
+  <text x="432" y="342" font-size="10" fill="#991B1B">· Parse → ModelDecision</text>
+  <!-- Decision type boxes -->
+  <rect x="440" y="354" width="72" height="20" rx="4" fill="#FCA5A5" stroke="#DC2626" stroke-width="1"/>
+  <text x="476" y="368" text-anchor="middle" font-size="9" font-weight="600" fill="#991B1B">Respond</text>
+  <rect x="522" y="354" width="52" height="20" rx="4" fill="#FCA5A5" stroke="#DC2626" stroke-width="1"/>
+  <text x="548" y="368" text-anchor="middle" font-size="9" font-weight="600" fill="#991B1B">Act</text>
+  <rect x="584" y="354" width="65" height="20" rx="4" fill="#FCA5A5" stroke="#DC2626" stroke-width="1"/>
+  <text x="616" y="368" text-anchor="middle" font-size="9" font-weight="600" fill="#991B1B">Silence</text>
+  <text x="432" y="396" font-size="10" fill="#991B1B">· Token usage tracking (Metrics)</text>
+
+  <!-- Arrow: Reasoning → Executor -->
+  <line x1="735" y1="348" x2="775" y2="348" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Action Executor -->
+  <rect x="780" y="275" width="380" height="145" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
+  <rect x="780" y="275" width="380" height="22" rx="6" fill="#059669"/>
+  <rect x="780" y="288" width="380" height="9" fill="#059669"/>
+  <text x="970" y="291" text-anchor="middle" font-size="11" font-weight="700" fill="white">Action Executor</text>
+  <text x="792" y="314" font-size="10" fill="#065F46">· Permission Check (4-level boundary)</text>
+  <text x="792" y="328" font-size="10" fill="#065F46">· Parallel Tool Execution</text>
+  <text x="792" y="342" font-size="10" fill="#065F46">· Result Collection + Error Handling</text>
+  <text x="792" y="356" font-size="10" fill="#065F46">· Approval Callback (5min timeout)</text>
+  <text x="792" y="370" font-size="10" fill="#065F46">· Auto-approve mode for Missions</text>
+
+  <!-- Feedback arrow (curved path at bottom of core loop) -->
+  <path d="M 970,420 L 970,427 L 205,427 L 205,420" fill="none" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="5,3"/>
+  <text x="588" y="425" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">← tool results feedback (loop until Respond or Silence) →</text>
+
+  <!-- Response arrow (dashed, from core loop back to channels) -->
+  <path d="M 575,275 L 575,270 Q 575,258 565,258 L 25,258 Q 12,258 12,248 L 12,100 Q 12,82 25,82 L 50,82" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <text x="12" y="178" font-size="9" font-weight="600" fill="#3B82F6" transform="rotate(-90, 12, 178)">Response → Channel</text>
+
+  <!-- ===== LOWER SECTION ===== -->
+
+  <!-- ===== MEMORY SYSTEM (left) ===== -->
+  <rect x="25" y="458" width="340" height="218" rx="8" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="25" y="458" width="340" height="24" rx="8" fill="#7C3AED"/>
+  <rect x="25" y="472" width="340" height="10" fill="#7C3AED"/>
+  <text x="195" y="475" text-anchor="middle" font-size="12" font-weight="700" fill="white">Memory System</text>
+
+  <!-- Three layers -->
+  <text x="38" y="500" font-size="10" font-weight="600" fill="#5B21B6">Three-Layer Architecture:</text>
+  <rect x="38" y="507" width="95" height="18" rx="3" fill="#C4B5FD" stroke="#7C3AED" stroke-width="0.5"/>
+  <text x="85" y="519" text-anchor="middle" font-size="9" font-weight="600" fill="#5B21B6">Fact</text>
+  <text x="140" y="519" font-size="9" fill="#6D28D9">persistent knowledge</text>
+
+  <rect x="38" y="528" width="95" height="18" rx="3" fill="#C4B5FD" stroke="#7C3AED" stroke-width="0.5"/>
+  <text x="85" y="540" text-anchor="middle" font-size="9" font-weight="600" fill="#5B21B6">Episode</text>
+  <text x="140" y="540" font-size="9" fill="#6D28D9">conversation logs</text>
+
+  <rect x="38" y="549" width="95" height="18" rx="3" fill="#C4B5FD" stroke="#7C3AED" stroke-width="0.5"/>
+  <text x="85" y="561" text-anchor="middle" font-size="9" font-weight="600" fill="#5B21B6">Reflection</text>
+  <text x="140" y="561" font-size="9" fill="#6D28D9">LLM-generated insights</text>
+
+  <line x1="38" y1="574" x2="352" y2="574" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="38" y="588" font-size="10" font-weight="600" fill="#5B21B6">Hybrid Search:</text>
+  <text x="38" y="602" font-size="9" fill="#6D28D9">FTS5 keyword (40%) + TF-IDF vector (60%)</text>
+  <text x="38" y="616" font-size="9" fill="#6D28D9">Cosine similarity + Jaccard dedup</text>
+  <line x1="38" y1="624" x2="352" y2="624" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="38" y="638" font-size="10" font-weight="600" fill="#5B21B6">Maintenance:</text>
+  <text x="38" y="652" font-size="9" fill="#6D28D9">Auto-compact (>500) · Auto-reflect · Per-user isolation</text>
+  <text x="38" y="666" font-size="9" fill="#6D28D9">SQLite WAL + FTS5 · Zero external services</text>
+
+  <!-- Arrow: Memory ↔ Context Assembler -->
+  <line x1="195" y1="458" x2="195" y2="425" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+  <text x="205" y="446" font-size="8" font-weight="600" fill="#7C3AED">search / store</text>
+
+  <!-- ===== PROVIDERS (center-top) ===== -->
+  <rect x="385" y="458" width="290" height="102" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <rect x="385" y="458" width="290" height="24" rx="8" fill="#DC2626"/>
+  <rect x="385" y="472" width="290" height="10" fill="#DC2626"/>
+  <text x="530" y="475" text-anchor="middle" font-size="12" font-weight="700" fill="white">LLM Providers (12)</text>
+
+  <text x="398" y="498" font-size="10" font-weight="600" fill="#991B1B">Anthropic</text>
+  <text x="468" y="498" font-size="9" fill="#B91C1C">(native SDK)</text>
+  <text x="398" y="512" font-size="10" font-weight="600" fill="#991B1B">OpenAI-compatible</text>
+  <text x="518" y="512" font-size="9" fill="#B91C1C">(11 providers)</text>
+  <text x="398" y="526" font-size="8" fill="#DC2626">DeepSeek · Moonshot · DashScope · Zhipu</text>
+  <text x="398" y="538" font-size="8" fill="#DC2626">Gemini · Ollama · LM Studio · vLLM · +more</text>
+  <text x="398" y="553" font-size="9" font-weight="600" fill="#991B1B">Stream + Function Calling + Token Counting</text>
+
+  <!-- Arrow: Providers ↔ Model Reasoning -->
+  <line x1="530" y1="458" x2="530" y2="425" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arr-red)"/>
+  <text x="540" y="446" font-size="8" font-weight="600" fill="#DC2626">chat / chatStream</text>
+
+  <!-- ===== TOOL REGISTRY (center-bottom) ===== -->
+  <rect x="385" y="574" width="290" height="102" rx="8" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
+  <rect x="385" y="574" width="290" height="24" rx="8" fill="#059669"/>
+  <rect x="385" y="588" width="290" height="10" fill="#059669"/>
+  <text x="530" y="591" text-anchor="middle" font-size="12" font-weight="700" fill="white">Tool Registry</text>
+
+  <text x="398" y="614" font-size="10" font-weight="600" fill="#065F46">Built-in (20 tools):</text>
+  <text x="398" y="628" font-size="8.5" fill="#047857">bash · file-ops · web_search · web_fetch</text>
+  <text x="398" y="641" font-size="8.5" fill="#047857">memory · message · timer · mission (×9)</text>
+  <line x1="398" y1="648" x2="662" y2="648" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="398" y="661" font-size="9" fill="#065F46"><tspan font-weight="600">MCP Servers</tspan>: stdio JSON-RPC 2.0</text>
+  <text x="398" y="673" font-size="9" fill="#065F46"><tspan font-weight="600">JS Plugins</tspan>: plugins/ dir, auto-load</text>
+
+  <!-- Arrow: Tools ↔ Action Executor -->
+  <path d="M 660,600 L 710,600 Q 730,600 730,580 L 730,440 Q 730,425 745,425 L 775,425" fill="none" stroke="#059669" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <text x="735" y="510" font-size="8" font-weight="600" fill="#059669" transform="rotate(-90, 735, 510)">execute tools</text>
+
+  <!-- ===== MISSION ENGINE (right) ===== -->
+  <rect x="700" y="458" width="475" height="218" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+  <rect x="700" y="458" width="475" height="24" rx="8" fill="#D97706"/>
+  <rect x="700" y="472" width="475" height="10" fill="#D97706"/>
+  <text x="938" y="475" text-anchor="middle" font-size="12" font-weight="700" fill="white">Mission Engine — Autonomous Background Execution</text>
+
+  <text x="715" y="500" font-size="10" font-weight="600" fill="#92400E">Execution Modes:</text>
+  <rect x="715" y="505" width="70" height="18" rx="3" fill="#FDE68A" stroke="#D97706" stroke-width="0.5"/>
+  <text x="750" y="517" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">Sprint</text>
+  <text x="792" y="517" font-size="9" fill="#B45309">5min interval, rapid iteration</text>
+  <rect x="715" y="527" width="70" height="18" rx="3" fill="#FDE68A" stroke="#D97706" stroke-width="0.5"/>
+  <text x="750" y="539" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">Patrol</text>
+  <text x="792" y="539" font-size="9" fill="#B45309">30min interval, monitoring</text>
+
+  <line x1="715" y1="552" x2="1162" y2="552" stroke="#FDE68A" stroke-width="1"/>
+  <text x="715" y="566" font-size="10" font-weight="600" fill="#92400E">Per-run Limits:</text>
+  <text x="715" y="580" font-size="9" fill="#B45309">Max 30 loops / 10min timeout / 3 retries on error</text>
+  <text x="715" y="594" font-size="9" fill="#B45309">Auto-approve all tools (no user dialogs)</text>
+  <text x="715" y="608" font-size="9" fill="#B45309">Auto-notify user on progress via send_message</text>
+
+  <line x1="715" y1="616" x2="1162" y2="616" stroke="#FDE68A" stroke-width="1"/>
+  <text x="715" y="630" font-size="10" font-weight="600" fill="#92400E">Persistence:</text>
+  <text x="715" y="644" font-size="9" fill="#B45309">SQLite: missions + mission_steps tables</text>
+  <text x="715" y="658" font-size="9" fill="#B45309">continue_now (immediate re-run) · Self-reflection every 50 steps</text>
+  <text x="715" y="672" font-size="9" fill="#B45309">Lifecycle: active → paused → completed · Restore on startup</text>
+
+  <!-- Arrow: Mission ↔ Master Loop -->
+  <path d="M 938,458 L 938,445 Q 938,435 928,435 L 770,435 L 770,218" fill="none" stroke="#D97706" stroke-width="1.5" marker-end="url(#arr-amber)"/>
+  <text x="860" y="444" font-size="8" font-weight="600" fill="#D97706">schedule / execute</text>
+
+  <!-- ===== PERMISSION BOUNDARY BAR ===== -->
+  <rect x="25" y="698" width="1150" height="44" rx="8" fill="#CFFAFE" stroke="#0891B2" stroke-width="1.5"/>
+  <text x="600" y="714" text-anchor="middle" font-size="12" font-weight="700" fill="#155E75">Permission Boundary — Four-Level Progressive Trust</text>
+  <!-- L0 -->
+  <rect x="42" y="722" width="225" height="14" rx="3" fill="#A5F3FC"/>
+  <text x="154" y="732" text-anchor="middle" font-size="8.5" font-weight="600" fill="#0E7490">L0 FREE: read · search · grep · web · memory_read</text>
+  <!-- L1 -->
+  <rect x="280" y="722" width="250" height="14" rx="3" fill="#67E8F9"/>
+  <text x="405" y="732" text-anchor="middle" font-size="8.5" font-weight="600" fill="#0E7490">L1 NOTIFY: write_file · bash · memory_write</text>
+  <!-- L2 -->
+  <rect x="543" y="722" width="290" height="14" rx="3" fill="#22D3EE"/>
+  <text x="688" y="732" text-anchor="middle" font-size="8.5" font-weight="600" fill="#155E75">L2 APPROVE: send_message · MCP tools (5min timeout)</text>
+  <!-- L3 -->
+  <rect x="846" y="722" width="315" height="14" rx="3" fill="#06B6D4"/>
+  <text x="1003" y="732" text-anchor="middle" font-size="8.5" font-weight="700" fill="#164E63">L3 FORBIDDEN: configurable hard block · always denied</text>
+
+  <!-- ===== STATS LINE ===== -->
+  <text x="600" y="770" text-anchor="middle" font-size="11" fill="#9CA3AF">47 TypeScript files · 20 Core Tools · 12 LLM Providers · 5 Channels · Zero External Service Dependencies</text>
+
+  <!-- ===== INIT FLOW (bottom annotation) ===== -->
+  <text x="600" y="790" text-anchor="middle" font-size="9" fill="#D1D5DB">Init: Config → Memory → Events → Channels → Provider → Tools → MCP → Plugins → Wire Callbacks → Restore Missions → Start Loop</text>
+
+  <!-- ===== CONNECTION: Permission bar ↔ Action Executor ===== -->
+  <path d="M 970,425 L 970,435 Q 970,445 980,445 L 1150,445 Q 1165,445 1165,455 L 1165,695" fill="none" stroke="#0891B2" stroke-width="1" stroke-dasharray="4,3"/>
+</svg>

@@ -453,6 +453,12 @@ NewClaw/
 
 **47 个 TypeScript 源文件 · 20 个核心工具 · 12 个 LLM 厂商 · 5 个通道 · 零外部服务依赖**
 
+### 完整架构图
+
+<p align="center">
+  <img src="docs/architecture-full_cn.svg" alt="NewClaw 完整架构" width="900"/>
+</p>
+
 ---
 
 ## 学术基础
